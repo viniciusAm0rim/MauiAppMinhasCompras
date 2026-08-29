@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MauiAppMinhasCompras.Models;
 using SQLite;
-using MauiAppMinhasCompras.Models;
 
 namespace MauiAppMinhasCompras.Helpers
 {
@@ -14,7 +11,6 @@ namespace MauiAppMinhasCompras.Helpers
         {
             _conn = new SQLiteAsyncConnection(path);
             _conn.CreateTableAsync<Produto>().Wait();
-
         }
 
         public Task<int> Insert (Produto p) 
