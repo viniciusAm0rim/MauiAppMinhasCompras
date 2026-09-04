@@ -7,10 +7,11 @@ namespace MauiAppMinhasCompras.Models
 
         [ PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Descricao { get; set; }
+        public string Descriçao { get; set; }
         public double Quantidade { get; set; }
-
         public double Preço { get; set; }
+        
+        public double Total { get => Quantidade * Preço;}
 
     }
 }
