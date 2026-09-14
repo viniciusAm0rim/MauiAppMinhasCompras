@@ -2,23 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.NovoProduto"
-             Title="NovoProduto">
+             Title="Novo Produto"
+             BackgroundColor="{StaticResource Gray100}">
 
     <ContentPage.ToolbarItems>
-
-    <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
-
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    
-    
-    <VerticalStackLayout Spacing="10" Padding="10">
-        <Label Text="Descriçao do Produto: " />
-        <Entry x:Name="txt_descr"/>
 
-        <Label Text="Quantidade do Produto: " />
-        <Entry x:Name="txt_quant"  Keyboard="Numeric"/>
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="20">
 
-        <Label Text="Preço do Produto: " />
-        <Entry x:Name="txt_Preço"  Keyboard="Numeric"/>
-    </VerticalStackLayout>
+            <Frame Padding="15" CornerRadius="12" BackgroundColor="{StaticResource White}" HasShadow="True">
+                <VerticalStackLayout Spacing="14">
+
+                    <Label Text="Descrição do Produto" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray600}"/>
+                    <Entry x:Name="txt_descr" Placeholder="Ex: Arroz 5kg" FontSize="14"/>
+
+                    <Label Text="Categoria" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray600}"/>
+                    <Picker x:Name="picker_categoria" Title="Selecione uma categoria" FontSize="14">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Alimentos</x:String>
+                                <x:String>Higiene</x:String>
+                                <x:String>Limpeza</x:String>
+                                <x:String>Outros</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="Quantidade" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray600}"/>
+                    <Entry x:Name="txt_quant" Placeholder="Ex: 1" Keyboard="Numeric" FontSize="14"/>
+
+                    <Label Text="Preço Unitário (R$)" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray600}"/>
+                    <Entry x:Name="txt_Preço" Placeholder="Ex: 25.90" Keyboard="Numeric" FontSize="14"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
